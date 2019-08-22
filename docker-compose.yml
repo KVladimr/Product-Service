@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+      
+  product-service:
+    image: enekst/product-service
+    restart: always
+    container_name: product-service
+    ports:
+      - 8080:8080
+    links:
+      - mongodb
+  
